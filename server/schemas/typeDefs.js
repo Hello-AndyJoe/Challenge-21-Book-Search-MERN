@@ -27,10 +27,10 @@ const typeDefs =`
     }
 
     type Mutation {
-        login:
-        addUser:
-        saveBook:
-        removeBook:
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+        saveBook: Book
+        removeBook: Book
     }
 
 `;
