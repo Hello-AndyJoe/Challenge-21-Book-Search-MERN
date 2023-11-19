@@ -5,11 +5,14 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-
+        getSingleUser: 
     },
 
     Mutation: {
-
+        createUser: 
+        login:
+        saveBook:
+        deleteBook:
     },
 };
 
