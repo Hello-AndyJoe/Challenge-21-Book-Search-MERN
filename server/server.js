@@ -13,10 +13,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-// if we're in production, serve client/build as static assets
+
 const startApolloServer = async () => {
   await server.start();
-
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
@@ -31,11 +30,14 @@ const startApolloServer = async () => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   }
+  // if we're in production, serve client/build as static assets
 
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
-      console.log(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+      console.log(`Use Graphql at http://localhost:3001/graphql`);
     });
   });
 };
+
+startApolloServer();
